@@ -1,10 +1,19 @@
 import { Flex, Box } from "reflexbox";
 
+export default function App() {
+  return (
+    <>
+      <TailwindExample />
+      <ReflexboxExample />
+    </>
+  );
+}
+
 function TailwindExample() {
   return (
     <>
-      <p>Tailwind</p>
-      <p>FlexBox grids</p>
+      <Title>Tailwind</Title>
+      <Subtitle>FlexBox grids</Subtitle>
       {/* <!-- Full width column --> */}
       <div className="flex mb-4">
         <div className="w-full bg-gray-500 h-12"></div>
@@ -51,7 +60,7 @@ function TailwindExample() {
       </div>
 
       {/* <!-- Responsive grids --> */}
-      <p>Responsive grids</p>
+      <Subtitle>Responsive grids</Subtitle>
       <div className="flex flex-wrap">
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 h-12 mb-4 bg-blue-500"></div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/6 h-12 mb-4 bg-blue-400"></div>
@@ -67,8 +76,8 @@ function TailwindExample() {
 function ReflexboxExample() {
   return (
     <>
-      <p>Reflexbox</p>
-      <p>FlexBox grids</p>
+      <Title>Reflexbox</Title>
+      <Subtitle>FlexBox grids</Subtitle>
       {/* <!-- Full width column --> */}
       <Flex className="mb-4">
         <Box width={1} className="bg-gray-500 h-12" />
@@ -115,7 +124,7 @@ function ReflexboxExample() {
       </Flex>
 
       {/* <!-- Responsive grids --> */}
-      <p>Responsive grids</p>
+      <Subtitle>Responsive grids</Subtitle>
       <Flex className="mb-4" flexWrap="wrap">
         <Box
           width={[1, 1 / 2, 1 / 3, 1 / 4, 1 / 6]}
@@ -146,13 +155,10 @@ function ReflexboxExample() {
   );
 }
 
-function App() {
-  return (
-    <>
-      <TailwindExample />
-      <ReflexboxExample />
-    </>
-  );
+function Title({ children }) {
+  return <p class="text-6xl">{children}</p>;
 }
 
-export default App;
+function Subtitle({ children }) {
+  return <p class="text-4xl">{children}</p>;
+}
